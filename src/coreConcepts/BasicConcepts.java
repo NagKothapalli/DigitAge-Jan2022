@@ -7,8 +7,6 @@ package coreConcepts;
 
 public class BasicConcepts  // BasicConcepts.java file will be called as own file for the class BasicConcepts
 {
-	
-	
 	//Members : Variables / Functions
 	//Signature of variable
 	 // Modifier[opt]    DataType   Name;  - Declaration

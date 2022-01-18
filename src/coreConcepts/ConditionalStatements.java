@@ -6,8 +6,11 @@ public class ConditionalStatements  //Decision Making Statements
 {
 	//if condition
 	//if(expression -> boolean : true / false){ Task }
-	
-	//Write a program to read two input numbers , perform addition if they are equal
+	//if else condition 
+	//Else if statement 
+	//Nested if condition
+	//Operators in Java like Arithmetic , Relational,Assignment ,Logical 
+	//Write programs to use all operators in conditional statements
 	public void performAddition(int a,int b) //Dev Code
 	{
 		System.out.println("A value :" + a);
@@ -28,7 +31,7 @@ public class ConditionalStatements  //Decision Making Statements
 		performAddition(44,24);
 	}
 	
-	//Write a program to read two input numbers , perform addition if they are equal ,do subtraction if they are not equal
+	
 		public void performAddition_ifelse(int a,int b) //Dev Code
 		{
 			System.out.println("A value :" + a);
@@ -53,7 +56,7 @@ public class ConditionalStatements  //Decision Making Statements
     	   performAddition_ifelse(22,22);
     	   performAddition_ifelse(26,29);
        }
-	//Write a program to read two input numbers , perform addition if they are equal ,do subtraction if a>b , do multiplication if a<b
+	
 	
 	public void performAddition_elseif(int a,int b)
 	{
@@ -83,9 +86,7 @@ public class ConditionalStatements  //Decision Making Statements
 		performAddition_elseif(535,55);
 		performAddition_elseif(55,255);
 	}
-	//Write a program to read two input numbers and perform the below task if and only if both inputs are above 10	
-	//Task : perform addition if they are equal ,do subtraction if a>b , do multiplication if a<b
-		
+	
 	public void logicalOperator(int a,int b) //Dev code
 	{
 		System.out.println("A value :" + a);
@@ -182,7 +183,7 @@ public class ConditionalStatements  //Decision Making Statements
 		multipleDecisions('I');
 		multipleDecisions('G');
 	}
-	//Write a program to read a number and decide that number is even or not	
+		
 	
 	public void findEvenNumber(int num) //Dev Code
 	{
@@ -205,8 +206,7 @@ public class ConditionalStatements  //Decision Making Statements
 		findEvenNumber(9);
 		findEvenNumber(66);
 		findEvenNumber(549);
-	}
-	
+	}	
 	@Test
 	public void findOddNumber_Test()
 	{
@@ -228,7 +228,13 @@ public class ConditionalStatements  //Decision Making Statements
 		
 	}
 		
-		
+	//Assignment :
+	//Write a program to read two input numbers , perform addition if they are equal ,do subtraction if they are not equal
+	//Write a program to read a number and decide that number is even or not
+	//Write a program to read two input numbers and perform the below task if and only if both inputs are above 10	
+		//Task : perform addition if they are equal ,do subtraction if a>b , do multiplication if a<b
+	//Write the above program using switch case
+	//Write a program to read two input numbers , perform addition if they are equal ,do subtraction if a>b , do multiplication if a<b		
 		
 		
 

@@ -10,6 +10,7 @@ public class CommercialCalculator implements ArithmeticOperations
 	@Override
 	public int addition(int a, int b) {
 		// TODO Auto-generated method stub
+		System.out.println("Addition from Commercial Calc");
 		return a+b;
 	}
 

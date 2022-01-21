@@ -9,6 +9,7 @@ public class MiniCalculator implements ArithmeticOperations
 	
 	public int addition(int a,int b)
 	{
+		System.out.println("Addition from Mini Calc");
 		int sum = a+b;
 		return sum;
 	}

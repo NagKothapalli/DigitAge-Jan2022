@@ -1,5 +1,7 @@
 package coreConcepts;
 
+import java.util.Arrays;
+
 import org.junit.Test;
 
 public class BasicArrays
@@ -35,7 +37,14 @@ public class BasicArrays
 		for(int i=0;i<len;i++) // i = 0 ....18 19
 		{
 			System.out.println("Elements before :" + numbers[i]); // i =0 1 2 3 4 5
-		}		
+		}	
+		Arrays.sort(numbers);
+		System.out.println("Elements after sorting :");
+		for(int i=0;i<len;i++) // i = 0 ....18 19
+		{
+			System.out.print( numbers[i] + ","); // i =0 1 2 3 4 5
+		}	
+		
 	}	
 	
 	//Signature of Dynamic Array

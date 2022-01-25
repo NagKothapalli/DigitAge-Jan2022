@@ -1,5 +1,8 @@
 package seleniumAutomation;
 
+import java.util.List;
+
+import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -12,32 +15,24 @@ import junit.framework.Assert;
 
 public class GmailAutomation
 {
-	//In Selenium software we have a Interface called WebDrier .
-	//WebDriver interface has implemented by different classes like Chrome,Firefox,IE ....
-	//WebDriver contains different functions to do different operations on a web application.
-	//WebDriver : get() - to call any url on a open browser
-	//The Constructor of each class who implemented WebDriver will open the respective browser automatically.
-	
-	//IllegalStateException: The path to the driver executable must be set by the webdriver.chrome.driver system property
-	//SessionNotCreatedException : org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Response code 500. Message: session not created: This version of ChromeDriver only supports Chrome version 97
-	     //Current browser version is 90.0.4430.212 with binary path C:\Program Files (x86)\Google\Chrome\Application\chrome.exe
-	//WebDriver : get(),getTitle(),getUrl(),getWindowHandle,getWindowHandles,refresh,close,quit
-			//findElement , findElements , switch  .......
-	//Selenium WebDriver will use the HTML document [DOM] of the web page for its object identification.
-	//How to open the HTML Doc : Open Developer tool in your browser [ F12 , or RightClick->Inspect -> Elements tab will have the Html page]
-	 //HTML Doc[DOM] will contain the attributes of each element present in the current web page we opened.
-	//Test Case : Gmail Application Title validation
-	//By : ID , Name , Class , Css , linkText , partialLinkText , tagName , xpath
-	//WebElement : click , clear , sendKeys , isDisplayed , isEnabled , getText , getAttribute , findElement , findElements
 	String expectedTitle = "Gmail"; //TestData 
-	@Test
-	public void launchApplication() throws InterruptedException
+	public WebDriver driver;//null
+	String name = "Ram"; //null
+	
+	public GmailAutomation()
+	{
+	  System.out.println("My name :" + name);
+	  System.setProperty("webdriver.chrome.driver",
+	  "D:\\Softwares\\JarFiles\\chromedriver-win32-90\\chromedriver.exe"); 
+	  driver = new ChromeDriver(); // a new empty chrome browser will be opened
+	}	
+	
+	@Before
+	public void launchApplication()
 	{
 		System.out.println("Test Case : Launch Application");
 		ArithmeticOperations calc = new SceintificCalculator();
 		calc.addition(35, 64);		
-		System.setProperty("webdriver.chrome.driver", "D:\\Softwares\\JarFiles\\chromedriver-win32-90\\chromedriver.exe");
-		WebDriver driver = new ChromeDriver();
 		driver.get("https://gmail.com"); //We have to call URL of AUT 
 		String actualTitle = driver.getTitle();
 		System.out.println("My title :" + actualTitle);
@@ -51,7 +46,110 @@ public class GmailAutomation
 		{
 			System.out.println("Title Validation Failed");
 		}
-		Assert.assertEquals(expectedTitle, actualTitle);
+		Assert.assertEquals(expectedTitle, actualTitle);		
+	}
+	@Test
+	public void loginToApplication()
+	{
+		//launchApplication();
+		System.out.println("Test Case : Login To Application");
+		//driver.findElement(By.name("identifier")).sendKeys("nag022@gmail.com");
+		driver.findElement(By.id("identifierId")).sendKeys("nag022@gmail.com");
+		driver.findElement(By.className("VfPpkd-vQzf8d")).click();
+	}
+	@Test
+	public void forgotEmail()
+	{
+		//launchApplication();
+		//driver.findElement(By.tagName("button")).click();
+		//button[@jsname='Cuz2Ue']
+		//button[text()='Forgot email?']
+		//*[text()='Forgot email?']
+		//button[contains(text(),'Forgot ')]
+		driver.findElement(By.xpath("//button[text()='Forgot email?']")).click();
+	}
+	@Test
+	public void learnMore()
+	{
+		//launchApplication();
+		//driver.findElement(By.tagName("a")).click();
+		//driver.findElement(By.linkText("Learn more")).click();
+		//driver.findElement(By.partialLinkText("Learn")).click();
+		driver.findElement(By.xpath("//a[@jsname='JFyozc']")).click();
+		/*
+		 * List<WebElement> elements = driver.findElements(By.tagName("a"));
+		 * System.out.println("Length of collection :" + elements.size()); for(int
+		 * i=0;i<elements.size();i++) { WebElement element = elements.get(i); String
+		 * text = element.getText(); if(text.equals("Learn more")) { element.click();
+		 * break; } }
+		 */
+	}
+	//FindElement function will throw NoSuchElement Exception if object is not there in the screen
+	//FindElements function will not throw exception if object is not there ,just it will return the size as zero.
+	//Xpath : Fixed / Static / Absolute
+	//Xpath : Relative xpath
+		//tagName[@attribute = 'value']
+		//tagName[text() = 'value']
+			//tagName[contains(@attribute , 'value')]
+			//tagName[contains(text() , 'value')]
+	//*[@attribute = 'value']
+	//*[text() = 'value']
+	//*[contains(@attribute , 'value')]
+	//*[contains(text() , 'value')]
+	
+	//tagName[@attribute1 = 'value' and @attribute2 = 'value']
+			//tagName[text() = 'value' and @attribute2 = 'value']
+				//tagName[contains(@attribute , 'value') and @attribute2 = 'value']
+				//tagName[contains(text() , 'value') and @attribute2 = 'value']
+		//*[@attribute = 'value' and @attribute2 = 'value']
+		//*[text() = 'value' and @attribute2 = 'value']
+		//*[contains(@attribute , 'value') and @attribute2 = 'value']
+		//*[contains(text() , 'value') and @attribute2 = 'value']
+	@Test
+	public void createAccount()
+	{
+		//launchApplication();
+		//
+		//driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[2]/div/div[2]/div/div/div[1]/div/button/span")).click();
+		//driver.findElement(By.xpath("//span[text()='Create account']")).click();
+		//driver.findElement(By.xpath("//span[contains(text(),'Create')]")).click();
+		driver.findElement(By.xpath("//*[contains(text(),'Create')  and @jsname='V67aGc']")).click();
+		/*
+		 * List<WebElement> elements =
+		 * driver.findElements(By.className("VfPpkd-vQzf8d"));
+		 * System.out.println("Length of collection :" + elements.size()); for(int
+		 * i=0;i<elements.size();i++) { WebElement element = elements.get(i); String
+		 * text = element.getText(); if(text.equals("Create account")) {
+		 * System.out.println("My tagname :" + element.getTagName());
+		 * System.out.println("My jsname :" + element.getAttribute("jsname"));
+		 * element.click(); break; } }
+		 */
+	}
+	@Test
+	public void help()
+	{
+		//launchApplication();
+		driver.findElement(By.linkText("Help")).click();
+	}
+	@Test
+	public void privacy()
+	{
+		//launchApplication();
+		driver.findElement(By.linkText("Privacy")).click();
+	}
+	@Test
+	public void terms()
+	{
+		//launchApplication();
+		driver.findElement(By.linkText("Terms")).click();
+	}
+	
+	//Execution : All Instance variables will be loaded -> Default Constructor -> Before Method ->Test Method
+	@Test
+	public void loginApplication() throws InterruptedException
+	{		
+		launchApplication();
+		System.out.println("Test Case : Login To Application");
 		WebElement emailObj = driver.findElement(By.name("identifier"));
 		if(emailObj.isDisplayed() && emailObj.isEnabled())
 		{
@@ -68,12 +166,6 @@ public class GmailAutomation
 		}
 		
 		driver.findElement(By.name("identifier")).sendKeys("nag022");
-		
-	}
-	@Test
-	public void loginToApplication()
-	{
-		System.out.println("Test Case : Login To Application");
 	}
 	
 	//Demonstrate : IllegalStateException 

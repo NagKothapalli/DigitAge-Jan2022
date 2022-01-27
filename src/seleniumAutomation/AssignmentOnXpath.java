@@ -22,5 +22,10 @@ public class AssignmentOnXpath
 			//*[text() = 'value' and @attribute2 = 'value']
 			//*[contains(@attribute , 'value') and @attribute2 = 'value']
 			//*[contains(text() , 'value') and @attribute2 = 'value']
+	
+	//Write a program to read a number and find that is palindrome ?
+	//Write a program to read a string and find that is palindrome ?
+	//Write a program to generate fibonacci series  ..0 1 1 2 3 5 8 ..... . Take the count as input
+	//Write a program to find the given two strings are anagrams - brag / grab
 
 }

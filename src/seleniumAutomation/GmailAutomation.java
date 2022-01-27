@@ -114,6 +114,8 @@ public class GmailAutomation
 		//driver.findElement(By.xpath("//span[text()='Create account']")).click();
 		//driver.findElement(By.xpath("//span[contains(text(),'Create')]")).click();
 		driver.findElement(By.xpath("//*[contains(text(),'Create')  and @jsname='V67aGc']")).click();
+		//driver.findElement(By.className("whsOnd zHQkBf")).click();
+		driver.findElement(By.cssSelector(".whsOnd")).sendKeys("Ram");
 		/*
 		 * List<WebElement> elements =
 		 * driver.findElements(By.className("VfPpkd-vQzf8d"));

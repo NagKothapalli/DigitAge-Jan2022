@@ -29,6 +29,8 @@ public class ApsrtcAutomation extends GeneralUtility
 	String name = "Ram"; //null
 	Actions actions;
 	JavascriptExecutor js;
+	ReadProperties testData;
+	ApplicationUtilities appUtils;
 	public ApsrtcAutomation()
 	{
 	  System.out.println("My name :" + name);
@@ -37,33 +39,63 @@ public class ApsrtcAutomation extends GeneralUtility
 	  driver = new ChromeDriver(); // a new empty chrome browser will be opened
 	  actions = new Actions(driver);
 	  js = (JavascriptExecutor)driver ; 
+	  testData = new ReadProperties("TestData/Apsrtc.properties");
+	  appUtils = new ApplicationUtilities(driver);
 	}	
 	String expected = "APSRTC Official Website for Online Bus Ticket Booking - APSRTConline.in";
 	@Before
 	public void launchApplication()
 	{
 		System.out.println("Test Case : Launch Application");
-		driver.get("https://www.apsrtconline.in/"); //prod  dev , qa , stage 
+		//driver.get("https://www.apsrtconline.in/"); //prod  dev , qa , stage 
+		String url = testData.readData("URL");
+		driver.get(url);
 		Assert.assertEquals(expected, driver.getTitle());
+	}
+	
+	//DataDriven Test: Executing the same test case with multiple sets of Data .
+	@Test
+	public void bookTicketDataDriven()
+	{
+		String[] allFromCities = testData.readData("FromCities").split(",");
+		String[] allToCities = testData.readData("ToCities").split(",");
+		String[] allJDates = testData.readData("JDates").split(",");
+		for(int i=0;i<allFromCities.length;i++)
+		{
+			System.out.println("--------------------------------Iteration :" + (i+1));
+			appUtils.getElement("//input[@name='source']").sendKeys(allFromCities[i]);
+			fixedWait(1);
+			appUtils.clickEnter();
+			appUtils.getElement("//input[@name='destination']").sendKeys(allToCities[i]);
+			fixedWait(1);
+			appUtils.clickEnter();
+			appUtils.getElement("//input[@name='txtJourneyDate']").click();
+			selectDate(allJDates[i]);
+			appUtils.getElement("//input[@name='searchBtn']").click();
+			fixedWait(1);
+			appUtils.getElement("//a[@title='Home']").click();
+		}
+		
+		
 	}
 	@Test
 	public void bookTicket()
 	{
 		//driver.findElement(By.xpath("//input[@name='source']")).sendKeys("HYDERABAD");
 		WebElement mySource = driver.findElement(By.xpath("//input[@name='source']"));
-		actions.moveToElement(mySource).click().sendKeys("HYDERABAD").pause(1000).build().perform();
+		actions.moveToElement(mySource).click().sendKeys(testData.readData("FromCity")).pause(1000).build().perform();
 		//Thread.sleep(1000);
 		fixedWait(1);
 		actions.sendKeys(Keys.ENTER).perform();
 		driver.findElement(By.xpath("//input[@name='searchBtn']")).click();
 		driver.switchTo().alert().accept();
-		driver.findElement(By.xpath("//input[@name='destination']")).sendKeys("GUNTUR");
+		driver.findElement(By.xpath("//input[@name='destination']")).sendKeys(testData.readData("ToCity"));
 		//Thread.sleep(1000);
 		fixedWait(1);
 		actions.sendKeys(Keys.ENTER).perform();
 		driver.findElement(By.xpath("//input[@name='txtJourneyDate']")).click();
 		//driver.findElement(By.xpath("//a[text()='29']")).click();
-		selectDate("4");
+		selectDate(testData.readData("JDate"));
 		WebElement searchBtn = driver.findElement(By.xpath("//input[@name='searchBtn']"));
 		//searchBtn.click();
 		//searchBtn.sendKeys(Keys.ENTER);

@@ -20,6 +20,7 @@ public class RedBusAutomation
 	public WebDriver driver;//null
 	String name = "Ram"; //null
 	Actions actions;
+	ReadProperties testData;
 	public RedBusAutomation()
 	{
 	  System.out.println("My name :" + name);
@@ -28,13 +29,15 @@ public class RedBusAutomation
 	  driver = new ChromeDriver(); // a new empty chrome browser will be opened
 	  actions = new Actions(driver);
 	  driver.manage().window().maximize();
+	  testData = new ReadProperties("TestData/RedBus.properties");
 	}	
 	String expected = "APSRTC Official Website for Online Bus Ticket Booking - APSRTConline.in";
 	@Before
 	public void launchApplication()
 	{
 		System.out.println("Test Case : Launch Application");
-		driver.get("https://www.redbus.in/");
+		//driver.get("https://www.redbus.in/");
+		driver.get(testData.readData("URL"));
 		//Assert.assertEquals(expected, driver.getTitle());
 	}
 	@Test
@@ -51,14 +54,15 @@ public class RedBusAutomation
 	}
 	@Test
     public void bookTicket() throws InterruptedException {
-        driver.findElement(By.xpath("//input[@id = 'src']")).sendKeys("BAREILLY");
+        //driver.findElement(By.xpath("//input[@id = 'src']")).sendKeys("BAREILLY");
+        driver.findElement(By.xpath("//input[@id = 'src']")).sendKeys(testData.readData("FromCity"));
         Actions action = new Actions(driver);
         action.sendKeys(Keys.ENTER).perform();
-        driver.findElement(By.xpath("//input[@id = 'dest'] ")).sendKeys("DELHI");
+        driver.findElement(By.xpath("//input[@id = 'dest'] ")).sendKeys(testData.readData("ToCity"));
         action.sendKeys(Keys.ENTER).perform();
         driver.findElement(By.xpath("//span[@class='fl icon-calendar_icon-new icon-onward-calendar icon']")).click();
-        Thread.sleep(2000);       
-        driver.findElement(By.xpath("//table//tr//td[text()='29']")).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//table//tr//td[text()='"+testData.readData("JDate")+"']")).click();
         //driver.findElement(By.xpath("//button[@id = 'search_btn' and @class = 'we day']")).click();  
     
     }

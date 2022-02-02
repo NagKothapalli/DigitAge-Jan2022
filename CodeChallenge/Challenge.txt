@@ -5,8 +5,13 @@ Test 1
 Navigate to home page
 Assert that both the email address and password inputs are present as well as the login button
 Enter in an email address and password combination into the respective fields
+
+
 Test 2
 Navigate to home page
 In the test 2 div, assert that there are three values in the listgroup
 Assert that the second list item's value is set to "List Item 2"
 Assert that the second list item's badge value is 6
+
+
+Implement the PageObjectModel .

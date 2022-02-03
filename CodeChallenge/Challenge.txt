@@ -2,16 +2,33 @@
 Take the given index.html file as Application Under Test
 
 Test 1
+
 Navigate to home page
 Assert that both the email address and password inputs are present as well as the login button
 Enter in an email address and password combination into the respective fields
 
 
 Test 2
+
 Navigate to home page
 In the test 2 div, assert that there are three values in the listgroup
 Assert that the second list item's value is set to "List Item 2"
 Assert that the second list item's badge value is 6
 
+Test 3 
 
+Navigate to the home page
+In the test 3 div, assert that "Option 1" is the default selected value
+Select "Option 3" from the select list
+
+Test 4
+
+Navigate to home page
+In the test 4 div, assert that the first button is enabled and that the second button is disabled
+-----------------------------------------------------------------------------------------------------
 Implement the PageObjectModel .
+Implement Cross Browser Testing
+Implement Cross Platform Testing
+Run Test cases on different environments like Dev,QA,Stage,Production dynamically.
+Run Different testing types like smoke , regression dynamically .
+Implement Data Driven Testing by reading multiple sets of data from properties file with a separator

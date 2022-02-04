@@ -26,9 +26,22 @@ Test 4
 Navigate to home page
 In the test 4 div, assert that the first button is enabled and that the second button is disabled
 -----------------------------------------------------------------------------------------------------
+https://github.com/NagKothapalli/DigitAge-Jan2022-8AM-Maven.git
+
 Implement the PageObjectModel .
 Implement Cross Browser Testing
 Implement Cross Platform Testing
 Run Test cases on different environments like Dev,QA,Stage,Production dynamically.
 Run Different testing types like smoke , regression dynamically .
 Implement Data Driven Testing by reading multiple sets of data from properties file with a separator
+
+PageFactory model with FindsBy annotation
+TestNG - all annotations like BefroeTest , BeforeMethod , Test , AfterMethod, AfterTest 
+TestNG Suite with single class , multiple classes 
+TestNG suite with parallel execution 
+TestNG with dependencies 
+TestNG report - emailable html , index html 
+Synchronization : Fixed wait or static wait 
+Implicitwait
+Explicitwait with WebDriverWait class .
+Practice different ExpectedConditions like ElementToBeClickable , Visibile , TextVisible , allobjects visible, waitforalert, waitforframe etc...

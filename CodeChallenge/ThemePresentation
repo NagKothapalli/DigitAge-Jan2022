@@ -1,0 +1,54 @@
+Theme1 :
+
+Demonstrate the concept on Abstraction in Java with the help of interface . And Prove that we can do multiple inheritance 
+
+the help of interface.
+
+Theme2 :
+
+What did you understood about inheritance . What are different types of inheritance . Show them programatically.
+
+Theme3 :
+
+What are the Access Modifiers in Java . Demonstrate the visibility of all the modifiers with best code example.
+
+Theme4 :
+
+Design of Selenium WebDriver . WebDriver and its functions , RemoteWebDriver , ChromeDriver , FirefoxDriver , IEDriver ,WebElement
+
+Describe  -  WebElement loginObj = driver.findElement(By.xpath("//a[@id='login']");
+
+Theme5 :
+
+Demonstrate Synchronization in Selenium - Fixedwait , ImplicitWait , ExlicitWait
+
+Theme6 :
+
+Demonstrate the PageObject Model TestSuites , TestCases , PageObject , ApplicationUtilities , GeneralUtilities 
+And prove that you have applied all Oops concepts in your framework on need base.
+
+Theme7 : 
+
+Dmonstrate Cross Browser and Crossplatform testing
+
+Theme8 :
+
+Desin Environment Agnostic Framework . Meaning you have to run your test cases in different environments with the same code base . 
+You should have different TestData files for different environments.
+
+Theme9 : 
+
+Object Identification in Selenium . Different Locators in Selenium . Xpath : Static or Absolute  /  Relative xpath / Dynamic xpath
+
+Theme10 :
+
+Do DataDriven test with the help of your functional test case . Meaning run the same test case with multiple sets of Data.
+
+Theme11 : 
+
+Arrays in Java - Fixed array , Dynamic array . Declare , Assign ,  Length , Read , Write , Sort 
+Collections : List , Queue , Set , HashMap . Declare , Assign ,  Length , Read , Write , Sort ,reverse , Add , Remove , 
+ArrayList , LinkedList , Treeset , HashMap<Key,Value>
+
+
+

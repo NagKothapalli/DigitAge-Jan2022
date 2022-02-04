@@ -55,7 +55,8 @@ public class GmailAutomation
 		System.out.println("Test Case : Login To Application");
 		//driver.findElement(By.name("identifier")).sendKeys("nag022@gmail.com");
 		driver.findElement(By.id("identifierId")).sendKeys("nag022@gmail.com");
-		driver.findElement(By.className("VfPpkd-vQzf8d")).click();
+		By byObj = By.className("VfPpkd-vQzf8d");
+		WebElement nextBtn = driver.findElement(byObj);
 	}
 	@Test
 	public void forgotEmail()
